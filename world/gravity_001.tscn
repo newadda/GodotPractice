@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://bwjbyo5wiwhrp"]
+
+[ext_resource type="Script" path="res://character/player_001.gd" id="1_lfqg5"]
+[ext_resource type="PackedScene" uid="uid://uo7erq1y8h8j" path="res://character/player_001.tscn" id="1_wblnw"]
+[ext_resource type="PackedScene" uid="uid://c36pqb2jw2oxo" path="res://character/player_002.tscn" id="2_7xd2r"]
+[ext_resource type="PackedScene" uid="uid://ckygs6s073nh2" path="res://character/RigidBody.tscn" id="3_xw28y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rjnjk"]
+size = Vector2(901, 20)
+
+[node name="Gravity001" type="Node2D"]
+script = ExtResource("1_lfqg5")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(448, 392)
+scale = Vector2(1, 2.48)
+shape = SubResource("RectangleShape2D_rjnjk")
+debug_color = Color(0.917647, 0.133333, 0.631373, 0.419608)
+
+[node name="Player001" parent="." instance=ExtResource("1_wblnw")]
+position = Vector2(736, 288)
+
+[node name="Player002" parent="." instance=ExtResource("2_7xd2r")]
+position = Vector2(560, 96)
+
+[node name="RigidBody" parent="." instance=ExtResource("3_xw28y")]
+position = Vector2(728, 112)
